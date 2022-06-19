@@ -26,10 +26,17 @@ function CheesePage() {
   // console.log(addToCart);
     return (
      <div>
-            <>
-            <CartCheese cheeseCart={cheeseCart} />
-            </>
+        <CartCheese cheeseCart={cheeseCart} />
         <AllCheese addToCart={addToCart} cheeses={cheeses}/>
+        <form onSubmit={(e) => {
+            e.preventDefault()
+            console.log("Submitted!")}}>
+          Not Cheesy Enough? Add Your Own!
+          <input className="name" placeholder="Name"></input>
+          <input className="firmness" placeholder="Firmness"></input>
+          <input className="image" placeholder="Image URL"></input>
+          <button className="submit-button">Cut The Cheese!</button>
+        </form>
      </div>
     )
 }
