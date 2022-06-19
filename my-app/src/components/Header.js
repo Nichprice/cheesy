@@ -1,21 +1,24 @@
 import React from "react";
-import cheeselogo from '../images/cheeselogo.png'
+import cheeselogo from '../images/cheeselogo.png';
+import '../Header.css';
 
 
 function Header() {
  return (
-  <div>
+  <div id="header">
     <img 
       className="cheesy-home-button" 
       src={cheeselogo}
       // onClick
     /> 
     <h1>
-      cheesy
+      <br></br>
+      Cheesy
+      <div className="cart-button">
+      🛒
+      </div>
     </h1>
-    <button className="cart-button">
-      Your Cart
-    </button>
+    
   </div>
  )
 }
