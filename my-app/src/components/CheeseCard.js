@@ -1,6 +1,6 @@
 import React from "react";
 
-function CheeseCard() {
+function CheeseCard({cheese}) {
     return (
         <div className="whole-card">
             <div  className="name">
@@ -10,12 +10,12 @@ function CheeseCard() {
                 {cheese.firmness}
             </div>
             <div className="image">
-                {cheese.image}
+                <img src={cheese.image}/>
             </div>
             <div className="card-footer">
                 <button 
                     className="info-button"
-                    onClick={}>
+                    onClick={console.log('clicked')}>
                     Info
                 </button>
                 <button 
