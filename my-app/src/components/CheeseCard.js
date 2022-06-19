@@ -1,6 +1,7 @@
 import React from "react";
 
-function CheeseCard({cheese}) {
+function CheeseCard({cheese, addToCart}) {
+  
     return (
         <div className="whole-card">
             <div  className="name">
@@ -15,10 +16,11 @@ function CheeseCard({cheese}) {
             <div className="card-footer">
                 <button 
                     className="info-button"
-                    onClick={console.log('clicked')}>
+                    onClick={() =>console.log(cheese)}>
                     Info
                 </button>
                 <button 
+                    onClick={() => addToCart(cheese)}
                     className="addtocart-button">
                     Add to 🛒
                 </button>

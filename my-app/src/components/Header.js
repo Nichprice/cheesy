@@ -8,7 +8,7 @@ function Header() {
     <img 
       className="cheesy-home-button" 
       src={cheeselogo}
-      onClick
+      // onClick
     /> 
     <h1>
       cheesy

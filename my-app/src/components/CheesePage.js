@@ -2,8 +2,13 @@ import AllCheese from "./AllCheese"
 import CartCheese from "./CartCheese"
 import React, {useState, useEffect} from 'react'
 
+
+//6/19 get clicks working
+//new state for cartCheese
+//get routing working? 
 function CheesePage() {
   const [cheeses, setCheeses] = useState([])
+  const [cheeseCart, setCheeseCart] = useState([])
 
   useEffect(() => {
   fetch("http://localhost:3000/cheeses")
@@ -11,12 +16,20 @@ function CheesePage() {
   .then(d=>setCheeses(d))
   },[])
 
+  function addToCart(clickedCheese) {
+    if(cheeseCart.includes(clickedCheese) === false){
+      return setCheeseCart([...cheeseCart, clickedCheese])
+    } else {
+      return alert(`Don't hog all the cheese!`)
+    }
+  }
+  // console.log(addToCart);
     return (
      <div>
-         <button className="cart-button">
-            Your Cart
-         </button>
-        <AllCheese cheeses={cheeses}/>
+            <>
+            <CartCheese cheeseCart={cheeseCart} />
+            </>
+        <AllCheese addToCart={addToCart} cheeses={cheeses}/>
      </div>
     )
 }

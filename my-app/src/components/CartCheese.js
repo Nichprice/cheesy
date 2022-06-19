@@ -1,9 +1,15 @@
 import React from "react";
 import CheeseCard from "./CheeseCard"
 
-function CartCheese(){
+
+//showing as two your carts
+function CartCheese({cheeseCart}){
   return (
-  <CheeseCard />
+    <div>
+    {cheeseCart.map((cheese) => {
+      return <CheeseCard key={cheese.id} cheese={cheese}/>
+    })}
+    </div>
   )
 }
 
