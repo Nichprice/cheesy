@@ -1,0 +1,14 @@
+
+.row {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: grid;
+    gap: 50px;
+}
+
+img {
+    height: 150px;
+    width: auto;
+}
+

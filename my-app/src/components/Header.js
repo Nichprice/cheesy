@@ -14,7 +14,7 @@ function Header() {
     /> 
     <h1>
       <br></br>
-      Cheesy
+      <img id="cheese-script" src="https://see.fontimg.com/api/renderfont4/g8P5/eyJyIjoiZnMiLCJoIjoxNDYsInciOjIwMDAsImZzIjo3MywiZmdjIjoiI0ZGRkZGRiIsImJnYyI6IiNCNDQxNDEiLCJ0IjoxfQ/Q2hlZXN5/cheese-and-mouse.png"/>
       <div className="cart-button">
       🛒
       </div>

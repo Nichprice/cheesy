@@ -9,7 +9,7 @@ function CheeseCard({cheese, addToCart, capitalize, renderInfo}) {
                 {capitalize(cheese.name)}
             </div>
             <div className="firmness">
-                {cheese.firmness}
+                {capitalize(cheese.firmness)}
             </div>
             <div className="image">
                 <img src={cheese.image} alt={cheese.name}/>

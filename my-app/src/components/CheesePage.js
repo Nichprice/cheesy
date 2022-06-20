@@ -12,6 +12,7 @@ function CheesePage() {
   const [cheeses, setCheeses] = useState([])
   const [cheeseCart, setCheeseCart] = useState([])
   const [info, setInfo] = useState([])
+  const [formData, setFormData] = useState({})
 
   useEffect(() => {
   fetch("http://localhost:3000/cheeses")
@@ -26,10 +27,13 @@ function CheesePage() {
       return alert(`Don't hog all the cheese!`)
     }
   }
-
   
   function renderInfo(clickedCheese){
     return setInfo(clickedCheese)
+  }
+
+  function submitForm(e) {
+    e.name.value
   }
 
   function capitalize(str) {
@@ -37,17 +41,17 @@ function CheesePage() {
       return (word.charAt(0).toUpperCase() + word.slice(1));
     }).join(' ');
   }
-  // console.log(addToCart);
+
     return (
      <div>
         <AllCheese renderInfo={renderInfo} capitalize={capitalize}addToCart={addToCart} cheeses={cheeses}/>
         <form onSubmit={(e) => {
           e.preventDefault()
-          console.log("Submitted!")}}>
+          submitForm()}}>
           Not Cheesy Enough? Add Your Own!
-          <input className="name" placeholder="Name"></input>
-          <input className="firmness" placeholder="Firmness"></input>
-          <input className="image" placeholder="Image URL"></input>
+          <input className="name" placeholder="Name" type="text"></input>
+          <input className="firmness" placeholder="Firmness" type="text"></input>
+          <input className="image" placeholder="Image URL" type="text"></input>
           <button className="submit-button">Cut The Cheese!</button>
         </form>
         <CartCheese capitalize={capitalize} cheeseCart={cheeseCart} />
