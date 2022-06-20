@@ -1,12 +1,13 @@
 import React from 'react';
 import CheeseCard from "./CheeseCard"
 
-function AllCheese({cheeses, addToCart}) {
+
+function AllCheese({cheeses, addToCart, capitalize, renderInfo}) {
   return (
     <div className='four-column-grid'>
       <div className='row'>
         {cheeses.map((cheese) => {
-          return <CheeseCard addToCart={addToCart} cheese={cheese} key={cheese.id}/>
+          return <CheeseCard renderInfo={renderInfo} addToCart={addToCart} capitalize={capitalize} cheese={cheese} key={cheese.id}/>
         })}
       </div>
     </div>

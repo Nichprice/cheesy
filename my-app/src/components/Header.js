@@ -7,6 +7,7 @@ function Header() {
  return (
   <div id="header">
     <img 
+      alt="cheese-logo"
       className="cheesy-home-button" 
       src={cheeselogo}
       // onClick
