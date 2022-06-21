@@ -24,6 +24,7 @@ function CheesePage() {
     .then(r=>r.json())
     .then(d=>setCheeses(d))
   },[])
+  
   function submitForm() {
     fetch("http://localhost:3000/cheeses", {
       method: "POST",
@@ -33,9 +34,9 @@ function CheesePage() {
       body: JSON.stringify({...formData})
     })
     .then(response => response.json())
-    .then(data => setFormData(data))
+    .then(data => setCheeses([...cheeses, data]))
     
-    setCheeses([...cheeses, formData])
+    setFormData(initialValues)
   }
   
   function addToCart(clickedCheese) {
@@ -50,15 +51,15 @@ function CheesePage() {
     return setInfo(clickedCheese)
   }
   
-  // function capitalize(str) {
-  //   return (str.toLowerCase().split(' ').map((word) => {
-  //     return (word.charAt(0).toUpperCase() + word.slice(1));
-  //   }).join(' '))
-  // }
-  // capitalize={capitalize}
+  function capitalize(str) {
+    return (str.toLowerCase().split(' ').map((word) => {
+      return (word.charAt(0).toUpperCase() + word.slice(1));
+    }).join(' '))
+  }
+  
     return (
      <div>
-        <AllCheese renderInfo={renderInfo}  addToCart={addToCart} cheeses={cheeses}/>
+        <AllCheese capitalize={capitalize} renderInfo={renderInfo}  addToCart={addToCart} cheeses={cheeses}/>
         <CartCheese cheeseCart={cheeseCart} />
         <CheeseInfo info={info} cheeses={cheeses} />
         <CheeseForm formData={formData} setFormData={setFormData} submitForm={submitForm} cheeses={cheeses} />
