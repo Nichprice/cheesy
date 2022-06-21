@@ -1,15 +1,15 @@
 import React from "react";
 
 
-function CheeseCard({cheese, addToCart, capitalize, renderInfo}) {
+function CheeseCard({cheese, addToCart, renderInfo}) {
   
     return (
         <div className="whole-card">
-            <div  className="name">
-                {capitalize(cheese.name)}
+            <div className="name">
+                {cheese.name}
             </div>
             <div className="firmness">
-                {capitalize(cheese.firmness)}
+                {cheese.firmness}
             </div>
             <div className="image">
                 <img src={cheese.image} alt={cheese.name}/>

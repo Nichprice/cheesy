@@ -10,12 +10,33 @@ function CheesePage() {
   const [cheeses, setCheeses] = useState([])
   const [cheeseCart, setCheeseCart] = useState([])
   const [info, setInfo] = useState([])
+  const initialValues = {
+    id: "",
+    name: "",
+    firmness: "",
+    image: "",
+    description: ""
+  }
+  const [formData, setFormData] = useState(initialValues)
 
+  function submitForm() {
+    fetch("http://localhost:3000/cheeses", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify([...cheeses, formData])
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    
+    setFormData(formData)
+  }
 
   useEffect(() => {
-  fetch("http://localhost:3000/cheeses")
-  .then(r=>r.json())
-  .then(d=>setCheeses(d))
+    fetch("http://localhost:3000/cheeses")
+    .then(r=>r.json())
+    .then(d=>setCheeses(d))
   },[])
 
   function addToCart(clickedCheese) {
@@ -30,18 +51,18 @@ function CheesePage() {
     return setInfo(clickedCheese)
   }
   
-  function capitalize(str) {
-    return str.toLowerCase().split(' ').map(function (word) {
-      return (word.charAt(0).toUpperCase() + word.slice(1));
-    }).join(' ');
-  }
-
+  // function capitalize(str) {
+  //   return (str.toLowerCase().split(' ').map((word) => {
+  //     return (word.charAt(0).toUpperCase() + word.slice(1));
+  //   }).join(' '))
+  // }
+  // capitalize={capitalize}
     return (
      <div>
-        <AllCheese renderInfo={renderInfo} capitalize={capitalize}addToCart={addToCart} cheeses={cheeses}/>
-        <CartCheese capitalize={capitalize} cheeseCart={cheeseCart} />
-        <CheeseInfo info={info} capitalize={capitalize} cheeses={cheeses} />
-        <CheeseForm cheeses={cheeses} />
+        <AllCheese renderInfo={renderInfo}  addToCart={addToCart} cheeses={cheeses}/>
+        <CartCheese cheeseCart={cheeseCart} />
+        <CheeseInfo info={info} cheeses={cheeses} />
+        <CheeseForm formData={formData} setFormData={setFormData} submitForm={submitForm} cheeses={cheeses} />
      </div>
     )
 }
