@@ -3,8 +3,10 @@ import cheeselogo from '../images/cheeselogo.png';
 import '../Header.css';
 
 
+
 function Header() {
  return (
+
   <div id="header">
     <img 
       alt="cheese-logo"
@@ -19,7 +21,12 @@ function Header() {
       🛒
       </div>
     </h1>
-    
+    {/* <nav>
+      <NavLink exact to="/">Home</NavLink>
+      <NavLink exact to="/cheeselist">Cheese List</NavLink>
+      <NavLink exact to="/addcheese">Add Cheese</NavLink>
+      <NavLink exact to="/cheesecart">Cart</NavLink>
+    </nav> */}
   </div>
  )
 }

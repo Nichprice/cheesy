@@ -11,7 +11,6 @@ function CheesePage() {
   const [cheeseCart, setCheeseCart] = useState([])
   const [info, setInfo] = useState([])
   const initialValues = {
-    id: "",
     name: "",
     firmness: "",
     image: "",
@@ -19,26 +18,26 @@ function CheesePage() {
   }
   const [formData, setFormData] = useState(initialValues)
 
+  
+  useEffect(() => {
+    fetch("http://localhost:3000/cheeses")
+    .then(r=>r.json())
+    .then(d=>setCheeses(d))
+  },[])
   function submitForm() {
     fetch("http://localhost:3000/cheeses", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify([...cheeses, formData])
+      body: JSON.stringify({...formData})
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => setCheeses(data))
     
     setFormData(formData)
   }
-
-  useEffect(() => {
-    fetch("http://localhost:3000/cheeses")
-    .then(r=>r.json())
-    .then(d=>setCheeses(d))
-  },[])
-
+  
   function addToCart(clickedCheese) {
     if(cheeseCart.includes(clickedCheese) === false){
       return setCheeseCart([...cheeseCart, clickedCheese])
