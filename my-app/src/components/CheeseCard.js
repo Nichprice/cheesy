@@ -1,25 +1,24 @@
 import React from "react";
+import {NavLink} from "react-router-dom";
 
-
-function CheeseCard({cheese, addToCart, renderInfo, capitalize}) {
+function CheeseCard({cheese, addToCart, capitalize, renderInfo}) {
   
     return (
         <div className="whole-card">
             <div className="name">
                 {capitalize(cheese.name)}
             </div>
-            <div className="firmness">
-                {capitalize(cheese.firmness)}
-            </div>
             <div className="image">
                 <img src={cheese.image} alt={cheese.name}/>
             </div>
             <div className="card-footer">
-                <button 
-                    className="info-button"
-                    onClick={() =>renderInfo(cheese)}>
-                    Info
-                </button>
+                <NavLink to="/info">
+                    <button 
+                        className="info-button"
+                        onClick={() =>renderInfo(cheese)}>
+                        Info
+                    </button>
+                </NavLink>
                 <button 
                     onClick={() => addToCart(cheese)}
                     className="addtocart-button">

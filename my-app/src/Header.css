@@ -8,11 +8,26 @@
     height: 200px;
 }
 
-h1 {
+span {
     text-align: left;
     vertical-align: center;
     font-size: 50px;
     color: white
+}
+
+#title {
+    float: left;
+}
+
+#form {
+    vertical-align: middle;
+    float: center;
+    text-align: center;
+    vertical-align: center;
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    width: auto
 }
 
 .cart-button {
@@ -28,3 +43,4 @@ h1 {
 #cheese-script {
     height: 80px 
 }
+

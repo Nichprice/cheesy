@@ -4,6 +4,7 @@ import CartCheese from "./CartCheese"
 import CheeseInfo from "./CheeseInfo"
 import CheeseForm from "./CheeseForm"
 import "../CheesePage.css";
+import {Switch, Route} from "react-router-dom";
 
 
 function CheesePage() {
@@ -59,10 +60,20 @@ function CheesePage() {
   
     return (
      <div>
-        <AllCheese capitalize={capitalize} renderInfo={renderInfo}  addToCart={addToCart} cheeses={cheeses}/>
-        <CartCheese cheeseCart={cheeseCart} />
-        <CheeseInfo info={info} cheeses={cheeses} />
-        <CheeseForm formData={formData} setFormData={setFormData} submitForm={submitForm} cheeses={cheeses} />
+      <Switch>
+        <Route exact path="/">
+          <AllCheese capitalize={capitalize} renderInfo={renderInfo}  addToCart={addToCart} cheeses={cheeses}/>
+        </Route>
+        <Route path="/cart">
+          <CartCheese cheeseCart={cheeseCart} capitalize={capitalize} renderInfo={renderInfo}/>
+        </Route>
+        <Route path="/info">
+          <CheeseInfo info={info} cheeses={cheeses} capitalize={capitalize}/>
+        </Route>
+        <Route path="/form">
+          <CheeseForm formData={formData} setFormData={setFormData} submitForm={submitForm} cheeses={cheeses} />
+        </Route>
+      </Switch>
      </div>
     )
 }
