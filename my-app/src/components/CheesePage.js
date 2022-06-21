@@ -1,13 +1,12 @@
+import React, {useState, useEffect} from 'react'
 import AllCheese from "./AllCheese"
 import CartCheese from "./CartCheese"
-import React, {useState, useEffect} from 'react'
 import CheeseInfo from "./CheeseInfo"
+import CheeseForm from "./CheeseForm"
 import "../CheesePage.css";
+import {Switch, Route} from "react-router-dom";
 
 
-//6/19 get clicks working
-//new state for cartCheese
-//get routing working? 
 function CheesePage() {
   const [cheeses, setCheeses] = useState([])
   const [cheeseCart, setCheeseCart] = useState([])
@@ -19,14 +18,28 @@ function CheesePage() {
     description: ""
   }
   const [formData, setFormData] = useState(initialValues)
+
   
-
   useEffect(() => {
-  fetch("http://localhost:3000/cheeses")
-  .then(r=>r.json())
-  .then(d=>setCheeses(d))
+    fetch("http://localhost:3000/cheeses")
+    .then(r=>r.json())
+    .then(d=>setCheeses(d))
   },[])
-
+  
+  function submitForm() {
+    fetch("http://localhost:3000/cheeses", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({...formData})
+    })
+    .then(response => response.json())
+    .then(data => setCheeses([...cheeses, data]))
+    
+    setFormData(initialValues)
+  }
+  
   function addToCart(clickedCheese) {
     if(cheeseCart.includes(clickedCheese) === false){
       return setCheeseCart([...cheeseCart, clickedCheese])
@@ -39,46 +52,28 @@ function CheesePage() {
     return setInfo(clickedCheese)
   }
   
-  function handleChange (e) {
-    const {name, value} = e.target;
-    setFormData({...formData, [name]: value})
-  }
-
-  function submitForm() {
-    fetch("http://localhost:3000/cheeses", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify([...cheeses, formData])
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    
-    setFormData(formData)
-  }
-
   function capitalize(str) {
-    return str.toLowerCase().split(' ').map(function (word) {
+    return (str.toLowerCase().split(' ').map((word) => {
       return (word.charAt(0).toUpperCase() + word.slice(1));
-    }).join(' ');
+    }).join(' '))
   }
-
+  
     return (
      <div>
-        <AllCheese renderInfo={renderInfo} capitalize={capitalize}addToCart={addToCart} cheeses={cheeses}/>
-        <form onSubmit={(e) => {
-          e.preventDefault()
-          submitForm()}}>
-          Not Cheesy Enough? Add Your Own!
-          <input className="name" placeholder="Name" type="text" name="name" value={formData.name} onChange={handleChange}></input>
-          <input className="firmness" placeholder="Firmness" type="text" name="firmness" value={formData.firmness} onChange={handleChange}></input>
-          <input className="image" placeholder="Image URL" type="text" name="image" value={formData.image} onChange={handleChange}></input>
-          <input className="description" placeholder="Description" type="text" name="description" value={formData.description} onChange={handleChange}></input>
-          <button className="submit-button">Cut The Cheese!</button>
-        </form>
-        <CartCheese capitalize={capitalize} cheeseCart={cheeseCart} />
-        <CheeseInfo info={info} capitalize={capitalize} cheeses={cheeses} />
+      <Switch>
+        <Route exact path="/">
+          <AllCheese capitalize={capitalize} renderInfo={renderInfo}  addToCart={addToCart} cheeses={cheeses}/>
+        </Route>
+        <Route path="/cart">
+          <CartCheese cheeseCart={cheeseCart} capitalize={capitalize} renderInfo={renderInfo}/>
+        </Route>
+        <Route path="/info">
+          <CheeseInfo info={info} cheeses={cheeses} capitalize={capitalize}/>
+        </Route>
+        <Route path="/form">
+          <CheeseForm formData={formData} setFormData={setFormData} submitForm={submitForm} cheeses={cheeses} />
+        </Route>
+      </Switch>
      </div>
     )
 }
