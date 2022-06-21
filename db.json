@@ -125,6 +125,20 @@
       "image": "nick",
       "description": "is",
       "id": 18
+    },
+    {
+      "name": "maggie",
+      "firmness": "is",
+      "image": "maggie",
+      "description": "is",
+      "id": 19
+    },
+    {
+      "name": "Nick Price",
+      "firmness": "smeelss ",
+      "image": "maggie",
+      "description": "best",
+      "id": 20
     }
   ]
 }

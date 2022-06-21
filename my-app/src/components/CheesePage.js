@@ -33,9 +33,9 @@ function CheesePage() {
       body: JSON.stringify({...formData})
     })
     .then(response => response.json())
-    .then(data => setCheeses(data))
+    .then(data => setFormData(data))
     
-    setFormData(formData)
+    setCheeses([...cheeses, formData])
   }
   
   function addToCart(clickedCheese) {

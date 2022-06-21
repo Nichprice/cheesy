@@ -7,7 +7,7 @@ function AllCheese({cheeses, addToCart, renderInfo}) {
     <div className='four-column-grid'>
       <div className='row'>
         {cheeses.map((cheese) => {
-          return <CheeseCard renderInfo={renderInfo} addToCart={addToCart} cheese={cheese} key={cheese.id}/>
+          return <CheeseCard key={cheese.id} renderInfo={renderInfo} addToCart={addToCart} cheese={cheese} />
         })}
       </div>
     </div>
