@@ -58,6 +58,11 @@ function CheesePage() {
     }).join(' '))
   }
   
+  function removeFromCart(clickedCheese) {
+    const modifiedCart = cheeseCart.filter(cheese => clickedCheese !== cheese);
+    setCheeseCart(modifiedCart);
+  }
+
     return (
      <div>
       <Switch>
@@ -65,7 +70,7 @@ function CheesePage() {
           <AllCheese capitalize={capitalize} renderInfo={renderInfo}  addToCart={addToCart} cheeses={cheeses}/>
         </Route>
         <Route path="/cart">
-          <CartCheese cheeseCart={cheeseCart} capitalize={capitalize} renderInfo={renderInfo}/>
+          <CartCheese cheeseCart={cheeseCart} capitalize={capitalize} renderInfo={renderInfo} removeFromCart={removeFromCart}/>
         </Route>
         <Route path="/info">
           <CheeseInfo info={info} cheeses={cheeses} capitalize={capitalize}/>
