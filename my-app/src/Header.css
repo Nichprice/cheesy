@@ -21,26 +21,39 @@ span {
 
 #form {
     vertical-align: middle;
-    float: center;
-    text-align: center;
-    vertical-align: center;
+    float: right;
+    text-align: right;
     color: white;
     text-decoration: none;
-    font-size: 30px;
-    width: auto
+    width: auto;
+    font-family: Arial;
+    font-style: bold;
+    margin-right: 50px;
+    margin-top: 80px;
+}
+
+.form {
+    font-size: 25px;
 }
 
 .cart-button {
     float: right;
-    margin-right: 50px;
-    background-color: white;
+    margin-right: 100px;
+    margin-top: 50px;
+    /* background-color: white; */
+    height: 50px;
     width: 100px;
     text-align: center;
-    height: 100px;
     vertical-align: center;
+}
+
+#cart-image {
+    height: 100px;
+    width: auto;
 }
 
 #cheese-script {
     height: 80px 
 }
+
 

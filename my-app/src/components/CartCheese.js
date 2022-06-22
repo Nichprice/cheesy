@@ -1,6 +1,5 @@
 import React from "react";
 import CartCard from "./CartCard";
-import "../AllCheese.css";
 
 
 //showing as two your carts

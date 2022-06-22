@@ -1,6 +1,6 @@
 import React from 'react';
 import CheeseCard from "./CheeseCard"
-import "../AllCheese.css";
+
 
 
 function AllCheese({cheeses, addToCart, renderInfo, capitalize}) {

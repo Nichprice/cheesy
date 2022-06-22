@@ -64,7 +64,7 @@ function CheesePage() {
   }
 
     return (
-     <div>
+     <div id="background">
       <Switch>
         <Route exact path="/">
           <AllCheese capitalize={capitalize} renderInfo={renderInfo}  addToCart={addToCart} cheeses={cheeses}/>
