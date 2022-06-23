@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# About Cheesy
+
+We built Cheesy as a way for you to learn a bit more about your favorite cheeses! You can learn more about a cheese, add it to your cart, and also add your favorites for others to learn about!
+
+## We Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Getting the site open
 
 In the project directory, you can run:
 
-### `npm start`
+#### `json-server --watch db.json`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This will start up the JSON server with the cheese data.
+Open [http://localhost:3000/cheeses](http://localhost:3000/cheeses) to view the cheeses in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### `cd my-app` and then `npm start`
 
-### `npm test`
+Runs the app in your browser.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The page will reload when you make changes.
 
-### `npm run build`
+## Functionality
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+We used client-side routing to make our app more appealing and user-friendly.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In our header, you can navigate between All Cheeses, Your Cart, and the form to add new cheeses.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The bottom section of our app is the Cheese Page, which contains switchable components of our app.
 
-### `npm run eject`
+### All Cheeses
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This component shows all the cheeses being fetched from the db.json file. Each cheese has an info button that you can click which will route you to the Cheese Info component and an Add To Cart button that will send the clicked cheese to your cart. See if anything happens when you try to add a cheese to your cart more than once!
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Cheese Info
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This component will give you a more in depth view of the cheese you have clicked on.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Cart Cheese
 
-## Learn More
+This component will show the cheeses you have added to your cart. You can still route to the info card from here, but you can also click the Remove From Cart button to take the cheese out of your cart.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Cheese Form
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+If you click the Cut The Cheese button in the header, you'll be taken to the Cheese Form component where you can add your own favorite cheese to the main list for everyone to see. Make sure to find a good picture to go with it!
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
