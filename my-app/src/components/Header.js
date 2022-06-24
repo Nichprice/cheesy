@@ -19,14 +19,14 @@ function Header() {
     <span id="title">
       <br></br>
       <NavLink exact to="/">
-        <img id="cheese-script" src="https://see.fontimg.com/api/renderfont4/g8P5/eyJyIjoiZnMiLCJoIjoxNDYsInciOjIwMDAsImZzIjo3MywiZmdjIjoiI0ZGRkZGRiIsImJnYyI6IiNCNDQxNDEiLCJ0IjoxfQ/Q2hlZXN5/cheese-and-mouse.png"/>
+        <img id="cheese-script" src="https://see.fontimg.com/api/renderfont4/g8P5/eyJyIjoiZnMiLCJoIjoxNDYsInciOjIwMDAsImZzIjo3MywiZmdjIjoiI0ZGRkZGRiIsImJnYyI6IiNCNDQxNDEiLCJ0IjoxfQ/Q2hlZXN5/cheese-and-mouse.png" alt=""/>
       </NavLink>
     </span>
     <span>
       <NavLink to="/cart" id="cart">
         {/* <br></br> */}
         <div className="cart-button">
-          <img id="cart-image" src="https://icon-library.com/images/white-shopping-cart-icon-png/white-shopping-cart-icon-png-17.jpg"/>
+          <img id="cart-image" src="https://icon-library.com/images/white-shopping-cart-icon-png/white-shopping-cart-icon-png-17.jpg" alt=""/>
         </div>
       </NavLink>
     </span>
@@ -40,10 +40,5 @@ function Header() {
   </nav>
  )
 }
-{/* <nav>
-      <NavLink exact to="/">Home</NavLink>
-      <NavLink exact to="/cheeselist">Cheese List</NavLink>
-      <NavLink exact to="/addcheese">Add Cheese</NavLink>
-      <NavLink exact to="/cheesecart">Cart</NavLink>
-    </nav> */}
+
 export default Header;
